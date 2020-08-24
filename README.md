@@ -3,9 +3,8 @@ Heaven Tech Test Project
 
 To opent this project required are:
 
-Flutter SDK 
-Android Studio or VS Code with Dart and Flutter installed 
-to run app need the iOS ar android simplator
+Flutter SDK, Android Studio or VS Code with Dart and Flutter installed ,
+to run app need the iOS or android simulator
 
 
 The project use
