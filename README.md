@@ -15,6 +15,9 @@ https://pub.dev/packages/bloc
 
 https://pub.dev/packages/flutter_bloc
 
+To run the project:
+1. Import open project in one of the IDE (Android Studio or VS Code)
+2. Press run
 
 # haven_tech_test
 
