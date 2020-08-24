@@ -1,7 +1,7 @@
 
 Heaven Tech Test Project
 
-To opent this poroject required are:
+To opent this project required are:
 
 Flutter SDk 
 Android Studio or VS Code with Dart and Flutter installed 
