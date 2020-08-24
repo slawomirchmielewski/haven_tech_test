@@ -3,9 +3,8 @@ Heaven Tech Test Project
 
 To opent this project required are:
 
-Flutter SDk 
-Android Studio or VS Code with Dart and Flutter installed 
-to run app need the iOS ar android simplator
+Flutter SDK, Android Studio or VS Code with Dart and Flutter installed ,
+to run app need the iOS or android simulator
 
 
 The project use
@@ -16,7 +15,7 @@ https://pub.dev/packages/bloc
 https://pub.dev/packages/flutter_bloc
 
 To run the project:
-1. Import open project in one of the IDE (Android Studio or VS Code)
+1. Import open project in to one of the IDE (Android Studio or VS Code)
 2. Press run
 
 # haven_tech_test
