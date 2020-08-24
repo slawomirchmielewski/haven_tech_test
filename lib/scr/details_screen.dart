@@ -44,7 +44,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                          "Destination caravans is ${widget.group.caravan}"),
+                          "Destination caravans fot the group is Caravan ${widget.group.caravan}"),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -52,8 +52,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child:
-                          Row(children: path.map((e) => Text("$e  ")).toList()),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: path
+                              .map((e) =>
+                                  e == 0 ? Text("Gate") : Text("Caravan: $e"))
+                              .toList()),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
