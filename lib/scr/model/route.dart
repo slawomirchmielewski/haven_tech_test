@@ -7,6 +7,5 @@ class Route extends Equatable {
   Route({this.name, this.camps});
 
   @override
-  // TODO: implement props
   List<Object> get props => [name, camps];
 }
