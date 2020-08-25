@@ -5,8 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DetailsScreen extends StatefulWidget {
   final Group group;
+  final List<Group> groups;
 
-  DetailsScreen({Key key, this.group}) : super(key: key);
+  DetailsScreen({Key key, this.group, this.groups}) : super(key: key);
 
   @override
   _DetailsScreenState createState() => _DetailsScreenState();
@@ -16,9 +17,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
   @override
   void initState() {
     super.initState();
-    context
-        .bloc<RoutesBloc>()
-        .add(RoutesEventCalculateRoute(group: widget.group));
+    context.bloc<RoutesBloc>().add(
+        RoutesEventCalculateRoute(group: widget.group, groups: widget.groups));
   }
 
   @override
@@ -31,9 +31,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
           builder: (context, state) {
             if (state is RoutesStateResultCalculated) {
               List<int> path = [];
+              int waintingTime = 0;
 
               for (int i = 0; i <= state.time; i++) {
                 path.add(state.route.camps[i]);
+              }
+              for (int z = 0; z < widget.group.familyId; z++) {
+                waintingTime += state.times[z];
               }
 
               return Padding(
@@ -62,6 +66,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text("Time of travel is ${state.time} min"),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Waiting time $waintingTime min"),
                     )
                   ],
                 ),

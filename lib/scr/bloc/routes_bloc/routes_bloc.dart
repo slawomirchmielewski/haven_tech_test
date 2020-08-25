@@ -27,22 +27,43 @@ class RoutesBloc extends Bloc<RoutesEvent, RoutesState> {
     RoutesEvent event,
   ) async* {
     if (event is RoutesEventCalculateRoute) {
-      yield* _mapRoutesEventCalculateRouteToState(event.group);
+      yield* _mapRoutesEventCalculateRouteToState(event.group, event.groups);
     }
   }
 
-  Stream<RoutesState> _mapRoutesEventCalculateRouteToState(Group group) async* {
+  Stream<RoutesState> _mapRoutesEventCalculateRouteToState(
+      Group group, List<Group> groups) async* {
     Route route;
     int time = 0;
+    List<int> times = [];
 
     for (int i = 0; i < _routes.length; i++) {
-      for (int y = 0; y < _routes[i].camps.length; y++) {
+      for (int y = 1; y < _routes[i].camps.length; y++) {
         if (group.caravan == _routes[i].camps[y]) {
           route = _routes[i];
           time = y * 1;
         }
       }
     }
-    yield RoutesStateResultCalculated(route: route, time: time);
+
+    for (int z = 0; z < groups.length; z++) {
+      times.add(getTime(groups[z]));
+    }
+
+    yield RoutesStateResultCalculated(route: route, time: time, times: times);
+  }
+
+  int getTime(Group group) {
+    int time = 0;
+
+    for (int i = 0; i < _routes.length; i++) {
+      for (int y = 1; y < _routes[i].camps.length; y++) {
+        if (group.caravan == _routes[i].camps[y]) {
+          time = y * 1;
+        }
+      }
+    }
+
+    return time;
   }
 }

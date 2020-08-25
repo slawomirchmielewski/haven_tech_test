@@ -7,9 +7,10 @@ abstract class RoutesEvent extends Equatable {
 
 class RoutesEventCalculateRoute extends RoutesEvent {
   final Group group;
+  final List<Group> groups;
 
-  RoutesEventCalculateRoute({this.group});
+  RoutesEventCalculateRoute({this.group, this.groups});
 
   @override
-  List<Object> get props => [group];
+  List<Object> get props => [group, groups];
 }

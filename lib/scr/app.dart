@@ -33,8 +33,14 @@ class _AppState extends State<App> {
             itemBuilder: (context, index) => ListTile(
               title: Text("Group ${groups[index].familyId.toString()}"),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => DetailsScreen(group: groups[index])));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => DetailsScreen(
+                      group: groups[index],
+                      groups: groups,
+                    ),
+                  ),
+                );
               },
             ),
           );

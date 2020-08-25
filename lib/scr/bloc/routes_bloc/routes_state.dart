@@ -10,9 +10,10 @@ class RoutesInitial extends RoutesState {}
 class RoutesStateResultCalculated extends RoutesState {
   final Route route;
   final int time;
+  final List<int> times;
 
-  RoutesStateResultCalculated({this.route, this.time});
+  RoutesStateResultCalculated({this.route, this.time, this.times});
 
   @override
-  List<Object> get props => [route, time];
+  List<Object> get props => [route, time, times];
 }
